@@ -44,3 +44,15 @@ def convert(self):
         "due_date": due_date_str,
         "completed": self.completed,
     }
+
+
+def __str__(self):
+    status = "✅" if self.completed else "⏳"
+    due_date_str = (
+        f"Due: {self.due_date.strftime('%Y-%m-%d')}" if self.due_date else "No due date"
+    )
+    return (
+        f"[{status}] ID: {self.id} | Title: {self.title} | {due_date_str}"
+        f"\n    Description: {self.description[:70]}{'...' if len(self.description) > 70 else ''}"
+    )
+

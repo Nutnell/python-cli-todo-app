@@ -56,3 +56,14 @@ def __str__(self):
         f"\n    Description: {self.description[:70]}{'...' if len(self.description) > 70 else ''}"
     )
 
+
+@staticmethod
+def reset_next_id(tasks=None):
+    if tasks:
+        if tasks:
+            max_id = max(task.id for task in tasks) if tasks else 0
+            Task._next_id = max_id + 1
+        else:
+            Task._next_id = 1
+    else:
+        Task._next_id = 1

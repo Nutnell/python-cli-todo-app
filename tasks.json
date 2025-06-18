@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Go through python recap",
+        "description": "Attempt the project",
+        "due_date": null,
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Do peer review",
+        "description": "Submit my project",
+        "due_date": null,
+        "completed": false
+    }
+]

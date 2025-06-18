@@ -3,32 +3,33 @@ import os
 from datetime import datetime, date
 from task import Task
 
-TASKS_FILE="tasks.json"
+TASKS_FILE = "tasks.json"
+
 
 def load_tasks():
-    tasks=[]
+    tasks = []
     if not os.path.exists(TASKS_FILE):
         print(f"Info: '{TASKS_FILE}' not found. Creating an empty tasks' list")
         Task.reset_assigned_id()
         return tasks
 
     try:
-        with open(TASKS_FILE, 'r', encoding='utf-8') as f:
-            content=f.read().strip()
+        with open(TASKS_FILE, "r", encoding="utf-8") as f:
+            content = f.read().strip()
             if not content:
                 print(f"Info: '{TASKS_FILE}' not found. Creating an empty tasks' list")
                 Task.reset_assigned_id()
                 return tasks
 
-            data= json.loads(content)
+            data = json.loads(content)
             for task_data in data:
-                task=Task(
-          title=task_data["title"],
-          description=task_data.get("description", ""),
-          due_date=task_data.get("due_date"),
-          completed=task_data["completed"],
-          task_id=task_data["id"]
-        )
+                task = Task(
+                    title=task_data["title"],
+                    description=task_data.get("description", ""),
+                    due_date=task_data.get("due_date"),
+                    completed=task_data["completed"],
+                    task_id=task_data["id"],
+                )
                 tasks.append(task)
 
         Task.reset_assigned_id(tasks)
@@ -49,13 +50,16 @@ def load_tasks():
         return []
     return tasks
 
+
 def save_tasks(tasks):
-  data=[task.convert() for task in tasks]   
-  try:
-    with open (TASKS_FILE, 'w', encoding='utf-8') as f:
-      json.dump(data, f, indent=4)
-    print(f"info: Successfully saved {len(tasks)} to '{TASKS_FILE}'.")  
-  except IOError as e:
-    print(f"Info: Could not write tasks to '{TASKS_FILE}'. Check file permissions. Error: {e}")
-  except Exception as e:
-    print(f"An unexpected error occured while saving tasks. {e}")
+    data = [task.convert() for task in tasks]
+    try:
+        with open(TASKS_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
+        print(f"info: Successfully saved {len(tasks)} to '{TASKS_FILE}'.")
+    except IOError as e:
+        print(
+            f"Info: Could not write tasks to '{TASKS_FILE}'. Check file permissions. Error: {e}"
+        )
+    except Exception as e:
+        print(f"An unexpected error occured while saving tasks. {e}")

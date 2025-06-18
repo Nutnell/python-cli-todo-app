@@ -28,3 +28,7 @@ def __init__(self, title, description="", due_date=None, completed=False, task_i
         print(f"Warning: Invalid date format for task '{title}'")
       else:
         self.due_date=None
+
+def mark_complete(self):
+  self.completed=True
+  print(f"Task {self.id}: '{self.title}' marked as completed.")

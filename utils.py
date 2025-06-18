@@ -48,4 +48,14 @@ def load_task():
         Task.reset_assigned_id()
         return []
     return tasks
-    
+
+def save_tasks(tasks):
+  data=[task.convert() for task in tasks]   
+  try:
+    with open (TASKS_FILE, 'w', encoding='utf-8') as f:
+      json.dump(data, f, indent=4)
+    print(f"info: Successfully saved {len(tasks)} to '{TASKS_FILE}'.")  
+  except IOError as e:
+    print(f"Info: Could not write tasks to '{TASKS_FILE}'. Check file permissions. Error: {e}")
+  except Exception as e:
+    print(f"An unexpected error occured while saving tasks. {e}")

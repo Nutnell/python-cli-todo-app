@@ -58,12 +58,12 @@ def __str__(self):
 
 
 @staticmethod
-def reset_next_id(tasks=None):
+def reset_assigned_id(tasks=None):
     if tasks:
         if tasks:
             max_id = max(task.id for task in tasks) if tasks else 0
-            Task._next_id = max_id + 1
+            Task._assigned_id = max_id + 1
         else:
-            Task._next_id = 1
+            Task._assigned_id = 1
     else:
-        Task._next_id = 1
+        Task._assigned_id = 1

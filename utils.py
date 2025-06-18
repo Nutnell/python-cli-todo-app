@@ -5,7 +5,7 @@ from task import Task
 
 TASKS_FILE="tasks.json"
 
-def load_task():
+def load_tasks():
     tasks=[]
     if not os.path.exists(TASKS_FILE):
         print(f"Info: '{TASKS_FILE}' not found. Creating an empty tasks' list")

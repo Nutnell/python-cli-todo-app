@@ -1,0 +1,11 @@
+#ignore the virtual environment
+venv/
+*.pyc
+__pycache__/
+
+#ignore Operating System files
+.DS_Store
+Thumbs.db
+
+#ignore Editor specific files
+.vscode/

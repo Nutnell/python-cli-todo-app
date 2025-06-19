@@ -73,4 +73,25 @@ def delete_task_command(args):
     save_tasks(tasks)
   else:
     print(f"Error: Task with ID {args.task_id} not found")
-    
+
+def main():
+  parser = argparse.ArgumentParser(
+    description="Task Manager.",
+    formatter_class=argparse.RawTextHelpFormatter
+    )
+  
+  subparsers = parser.add_subparsers(dest="command", help="Available commands")
+  
+  add_parser= subparsers.add_parser(
+    "add"
+    help="Add a new task"
+    description="Add a new task with a title, description, and a due date"
+    epilog="Example: add 'Buy groceries' -d 'Eggs, vegetables, fruits' --due 2025-06-20"
+  )
+  add_parser.add_argument("title", type=str, help="Title of the task (enclose in quotes if it contain spaces)")
+  add_parser.add_argument("-d", "--description", type=str, default="", help="Description of the task (optional)")
+  add_parser.add_argument("--due", dest="due_date", type=str, help="Due date in YYYY-MM-DD format (optional)")
+  add_parser.set_defaults(func=add_task_command)                       
+  
+  
+  

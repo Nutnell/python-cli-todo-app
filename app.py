@@ -93,5 +93,13 @@ def main():
   add_parser.add_argument("--due", dest="due_date", type=str, help="Due date in YYYY-MM-DD format (optional)")
   add_parser.set_defaults(func=add_task_command)                       
   
-  
+  list_parser = subparsers.add_parser(
+    "list",
+    help="List all tasks",
+    description="List all pending and completed tasks.",
+    epilog="Example: list\n"
+           "Example: list --today (List only pending tasks due today)"
+  )
+  list_parser.add_argument("--today", action="store_true", help="List only tasks due today")
+  list_parser.set_defaults(func=list_tasks_command)
   

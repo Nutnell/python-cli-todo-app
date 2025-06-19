@@ -83,6 +83,7 @@ def main():
   subparsers = parser.add_subparsers(dest="command", help="Available commands")
   
   add_parser= subparsers.add_parser(
+    
     "add",
     help="Add a new task",
     description="Add a new task with a title, description, and a due date",
@@ -104,10 +105,20 @@ def main():
   list_parser.set_defaults(func=list_tasks_command)
   
   complete_parser = subparsers.add_parser(
-   "complete",
+    "complete",
     help="Mark a task as completed",
     description="Mark a task as completed using its ID.",
     epilog="Example: python app.py complete 1"
   )
   complete_parser.add_argument("task_id", type=int, help="ID of the task to mark as completed")
   complete_parser.set_defaults(func=complete_task_command)
+  
+  delete_parser = subparsers.add_parser(
+    
+    "delete",
+    help="Delete a task",
+    description="Delete a task permanently using its ID.",
+    epilog="Example: python app.py delete 2"
+  )
+  delete_parser.add_argument("task_id", type=int, help="ID of the task to delete")
+  delete_parser.set_defaults(func=delete_task_command)

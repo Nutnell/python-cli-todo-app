@@ -23,4 +23,26 @@ def add_task_command(args):
   save_tasks(tasks)
   print(f"Task added: {new_task.title} (ID: {new_task.id})")
   
- 
+def list_tasks_command(args):
+  tasks = load_tasks
+  if not tasks:
+    print("No tasks available.")
+    return
+  
+  if args.today:
+    today = date.today()
+    filtered_tasks = [task for task in tasks if task.due_date == today and not task.completed]
+    if not filtered_tasks:
+      print(f"No pending tasks due today ({today.strftime('%Y-%m-%d')}).")
+      return
+    print(f"\n--- Pending Tasks Due Today ({today.strftime('%Y-%m-%d')}) ---")
+    for task in filtered_tasks:
+      print(task)
+      
+  else:
+    print("\n--- All Tasks ---")
+    tasks.sort(key=lambda t: (t.completed, t.id))
+    for task in tasks:
+      print(task)
+  print("-----------------\n")  
+  

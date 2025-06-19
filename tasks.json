@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Buy milk",
+        "description": "Remember whole milk",
+        "due_date": null,
+        "completed": true
+    },
+    {
+        "id": 2,
+        "title": "Call mom",
+        "description": "",
+        "due_date": null,
+        "completed": false
+    },
+    {
+        "id": 4,
+        "title": "Revise Gen AI",
+        "description": "My tech track",
+        "due_date": null,
+        "completed": false
+    }
+]

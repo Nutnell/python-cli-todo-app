@@ -6,7 +6,7 @@ from task import Task
 from utils import load_tasks, save_tasks
 
 def add_task_command(args):
-  tasks = load_tasks
+  tasks = load_tasks()
   due_date_str = args.due_date
   if due_date_str:
     try:
@@ -24,7 +24,7 @@ def add_task_command(args):
   print(f"Task added: {new_task.title} (ID: {new_task.id})")
   
 def list_tasks_command(args):
-  tasks = load_tasks
+  tasks = load_tasks()
   if not tasks:
     print("No tasks available.")
     return
@@ -47,7 +47,7 @@ def list_tasks_command(args):
   print("-----------------\n")  
   
 def complete_task_command(args):
-  tasks = load_tasks
+  tasks = load_tasks()
   task_found = False
   for task in tasks:
     if task.id == args.task_id: 
@@ -64,7 +64,7 @@ def complete_task_command(args):
     print(f"Error: Task with ID {args.task_id} not found.")
  
 def delete_task_command(args):
-  tasks = load_tasks
+  tasks = load_tasks()
   original_task_count = len(tasks)
   tasks = [task for task in tasks if task.id != args.task_id]
   
@@ -122,3 +122,17 @@ def main():
   )
   delete_parser.add_argument("task_id", type=int, help="ID of the task to delete")
   delete_parser.set_defaults(func=delete_task_command)
+  
+  args=parser.parse_args()
+  if not hasattr (args, 'func'):
+    parser.print_help()
+    sys.exit(1)
+  
+  args.func(args)
+  
+if __name__ == "__main__":
+  main()
+
+ 
+
+  

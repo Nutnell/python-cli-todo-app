@@ -46,3 +46,20 @@ def list_tasks_command(args):
       print(task)
   print("-----------------\n")  
   
+def complete_task_command(args):
+  tasks = load_tasks
+  task_found = False
+  for task in tasks:
+    if task.id == args.task_id: 
+      if not task.completed:        
+        task.mark_complete()
+        save_tasks(tasks)
+        task_found = True
+        break
+      else:
+        print(f"Task ID {args.task_id}: '{task.title}' is already completed.")
+        task_found = True
+        break
+  if not task_found:
+    print(f"Error: Task with ID {args.task_id} not found.")
+    

@@ -28,8 +28,6 @@ class Task:
             except ValueError:
                 self.due_date = None
                 print(f"Warning: Invalid date format for task '{title}'")
-            else:
-                self.due_date = None
         else:
             self.due_date = None
 

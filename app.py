@@ -16,9 +16,9 @@ def add_task_command(args):
       return
   new_task = Task(
     title=args.title,
-    description=args.description
+    description=args.description,
     due_date=due_date_str
-  )
+)
   tasks.append(new_task)
   save_tasks(tasks)
   print(f"Task added: {new_task.title} (ID: {new_task.id})")
@@ -83,9 +83,9 @@ def main():
   subparsers = parser.add_subparsers(dest="command", help="Available commands")
   
   add_parser= subparsers.add_parser(
-    "add"
-    help="Add a new task"
-    description="Add a new task with a title, description, and a due date"
+    "add",
+    help="Add a new task",
+    description="Add a new task with a title, description, and a due date",
     epilog="Example: add 'Buy groceries' -d 'Eggs, vegetables, fruits' --due 2025-06-20"
   )
   add_parser.add_argument("title", type=str, help="Title of the task (enclose in quotes if it contain spaces)")
@@ -103,3 +103,11 @@ def main():
   list_parser.add_argument("--today", action="store_true", help="List only tasks due today")
   list_parser.set_defaults(func=list_tasks_command)
   
+  complete_parser = subparsers.add_parser(
+   "complete",
+    help="Mark a task as completed",
+    description="Mark a task as completed using its ID.",
+    epilog="Example: python app.py complete 1"
+  )
+  complete_parser.add_argument("task_id", type=int, help="ID of the task to mark as completed")
+  complete_parser.set_defaults(func=complete_task_command)

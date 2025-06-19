@@ -62,4 +62,15 @@ def complete_task_command(args):
         break
   if not task_found:
     print(f"Error: Task with ID {args.task_id} not found.")
+ 
+def delete_task_command(args):
+  tasks = load_tasks
+  original_task_count = len(tasks)
+  tasks = [task for task in tasks if task.id != args.task_id]
+  
+  if len(tasks) < original_task_count:
+    print(f"Task with ID {args.task_id} deleted")
+    save_tasks(tasks)
+  else:
+    print(f"Error: Task with ID {args.task_id} not found")
     

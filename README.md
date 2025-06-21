@@ -12,21 +12,32 @@ This is a simple command-line interface (CLI) To-Do application built with Pytho
     * `python app.py add "Task Title" --due YYYY-MM-DD`
     * `python app.py add "Task Title" -d "Description" --due YYYY-MM-DD`
 
-        ![Terminal window showing a user adding a new task using the add command in the Python CLI To-Do application. The screen displays the command input and confirmation message Task added successfully. The environment is a typical command-line interface with a neutral tone focused on productivity.]('Add' Task functionality.png)
+        ![Terminal window showing a user adding a new task using the add command in the Python CLI To-Do application. The screen displays the command input and confirmation message Task added successfully. The environment is a typical command-line interface with a neutral tone focused on productivity.]('Add'-Task-functionality.png)
 
 
 * **List Tasks:** View all tasks, showing their ID, title, description, due date, and completion status.
     * `python app.py list`
 
-        ![Terminal window displaying the output of the list command in the Python CLI To-Do application. The screen shows a table with columns for task ID, title, description, due date, and completion status. Example tasks are listed with their details, and completed tasks are clearly marked. The environment is a standard command-line interface with a neutral and organized tone focused on productivity. The text output includes headers: ID, Title, Description, Due Date, Status, followed by rows of sample tasks.]
+        ![Terminal window displaying the output of the list command in the Python CLI To-Do application. The screen shows a table with columns for task ID, title, description, due date, and completion status. Example tasks are listed with their details, and completed tasks are clearly marked.]('List'-Task-Functionality.png)
 
 * **List Tasks Due Today:** Filter and display only pending tasks that are due on the current day.
     * `python app.py list --today`
+
+        ![Terminal window displaying the output of the list command filtered to show only tasks due today in the Python CLI To-Do application. The screen presents a table with columns labeled ID, Title, Description, Due Date, and Status. One task with a due date matching the current day is listed, one row showing task details and whether the task is completed or pending.]('Due-today'-Task-functionality.png)
+
 * **Complete Tasks:** Mark a task as completed using its unique ID.
     * `python app.py complete <task_id>`
+
+        ![Terminal window displaying how the mark a Task as complete works and the output of the list command after marking task 5 as completed]('Complete'-Task-functionality.png)
+
 * **Delete Tasks:** Permanently remove a task using its unique ID.
     * `python app.py delete <task_id>`
+
+        ![Terminal window displaying how the delete Task works and the output of the list command after deleting task 2]('Delete'-Task-functionality.png)
+
 * **Data Persistence:** Tasks are automatically saved to and loaded from `tasks.json`.
+        ![A screenshot of tasks loaded in the json file](tasks-json.png)
+
 * **Robust Error Handling:** Gracefully handles non-existent or corrupted data files.
 
 ## Installation

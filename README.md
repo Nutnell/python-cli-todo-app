@@ -11,8 +11,15 @@ This is a simple command-line interface (CLI) To-Do application built with Pytho
     * `python app.py add "Task Title" -d "Task description"`
     * `python app.py add "Task Title" --due YYYY-MM-DD`
     * `python app.py add "Task Title" -d "Description" --due YYYY-MM-DD`
+
+        ![Terminal window showing a user adding a new task using the add command in the Python CLI To-Do application. The screen displays the command input and confirmation message Task added successfully. The environment is a typical command-line interface with a neutral tone focused on productivity.]('Add' Task functionality.png)
+
+
 * **List Tasks:** View all tasks, showing their ID, title, description, due date, and completion status.
     * `python app.py list`
+
+        ![Terminal window displaying the output of the list command in the Python CLI To-Do application. The screen shows a table with columns for task ID, title, description, due date, and completion status. Example tasks are listed with their details, and completed tasks are clearly marked. The environment is a standard command-line interface with a neutral and organized tone focused on productivity. The text output includes headers: ID, Title, Description, Due Date, Status, followed by rows of sample tasks.]
+
 * **List Tasks Due Today:** Filter and display only pending tasks that are due on the current day.
     * `python app.py list --today`
 * **Complete Tasks:** Mark a task as completed using its unique ID.

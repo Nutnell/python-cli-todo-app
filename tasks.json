@@ -7,13 +7,6 @@
         "completed": true
     },
     {
-        "id": 2,
-        "title": "Call mom",
-        "description": "",
-        "due_date": null,
-        "completed": false
-    },
-    {
         "id": 4,
         "title": "Revise Gen AI",
         "description": "My tech track",
@@ -25,6 +18,27 @@
         "title": "Do peer review",
         "description": "Python project",
         "due_date": "2025-06-19",
+        "completed": true
+    },
+    {
+        "id": 6,
+        "title": "Attend Workshop",
+        "description": "",
+        "due_date": null,
+        "completed": false
+    },
+    {
+        "id": 7,
+        "title": "Revise peer review",
+        "description": "With the updated rubric file",
+        "due_date": null,
+        "completed": false
+    },
+    {
+        "id": 8,
+        "title": "Submit assignment",
+        "description": "Python cli-todo-app",
+        "due_date": "2025-06-21",
         "completed": false
     }
 ]

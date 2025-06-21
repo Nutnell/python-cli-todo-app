@@ -18,7 +18,7 @@ This is a simple command-line interface (CLI) To-Do application built with Pytho
 * **List Tasks:** View all tasks, showing their ID, title, description, due date, and completion status.
     * `python app.py list`
 
-        ![Terminal window displaying the output of the list command in the Python CLI To-Do application. The screen shows a table with columns for task ID, title, description, due date, and completion status. Example tasks are listed with their details, and completed tasks are clearly marked.]('List'-Task-Functionality.png)
+        ![Terminal window displaying the output of the list command in the Python CLI To-Do application. The screen shows a table with columns for task ID, title, description, due date, and completion status. Example tasks are listed with their details, and completed tasks are clearly marked.]('List'-Task-functionality.png)
 
 * **List Tasks Due Today:** Filter and display only pending tasks that are due on the current day.
     * `python app.py list --today`
